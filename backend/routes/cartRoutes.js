@@ -1,0 +1,10 @@
+import express from "express";
+import { protect } from "../middleware/authMiddleware.js";
+import { saveCart, getCart } from "../controllers/cartController.js";
+
+const router = express.Router();
+
+router.get("/", protect, getCart);
+router.post("/", protect, saveCart);
+
+export default router;
